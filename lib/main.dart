@@ -2,11 +2,12 @@ import 'dart:async';
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:template/core/controllers/theme_controller.dart';
 import 'package:template/core/themes/app_theme.dart';
-import 'package:template/features/todo/screens/sample_screen.dart';
+import 'package:template/features/reply_helper/screens/reply_helper_screen.dart';
 import 'package:template/setup.dart';
 
 /// 앱 시작점
@@ -15,6 +16,8 @@ void main() {
     () async {
       // Flutter 바인딩 초기화
       WidgetsFlutterBinding.ensureInitialized();
+      // .env 파일 로드
+      await dotenv.load();
       // 외부 서비스 초기화
       await AppSetup.initialize();
       // 다국어 지원 초기화
@@ -46,14 +49,14 @@ class MyApp extends ConsumerWidget {
     final themeMode = ref.watch(themeControllerProvider);
 
     return MaterialApp(
-      title: 'Blueberry Template',
+      title: 'Next Line',
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       themeMode: themeMode,
       locale: context.locale,
       supportedLocales: context.supportedLocales,
       localizationsDelegates: context.localizationDelegates,
-      home: const SampleScreen(),
+      home: const ReplyHelperScreen(),
     );
   }
 }

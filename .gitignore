@@ -65,17 +65,36 @@ coverage/
 *.lcov
 .test_coverage.dart
 
-# env file
+# Environment variables (민감한 API 키 포함)
 .env
+.env.local
+.env.*.local
 
-# Firebase distribution
+# Firebase distribution (앱별 고유 설정)
 google-services.json
 GoogleService-Info.plist
+firebase_options.dart
 
-# fvm
+# fvm (Flutter 버전 관리)
 .fvm/
 
-# Claude Code
+# Claude Code (MCP 서버 설정, 로컬 설정)
 .claude/settings.local.json
 .mcp.json
 devtools_options.yaml
+
+# VSCode 로컬 설정
+.vscode/settings.json
+
+# 임시 파일
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# 로그 파일
+*.log
+
+# 샘플/테스트 이미지 (용량 큼)
+assets/sample_images/

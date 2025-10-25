@@ -1,15 +1,25 @@
-# Blueberry Template
+# Next Line ✨
 
-Flutter 프로젝트를 빠르게 시작할 수 있는 심플한 템플릿
+AI 기반 영어 답장 도우미 - 카카오톡 대화 이미지를 분석하여 상황에 맞는 영어 답장을 추천해드립니다.
 
-## ⚙️ Setup (설정)
+## 📱 주요 기능
 
-- **[Flutter 환경 설정](docs/setup/FLUTTER_SETUP.md)** - Flutter 개발 환경 구축
-  - [Windows](docs/setup/FLUTTER_SETUP_WINDOWS.md) | [macOS](docs/setup/FLUTTER_SETUP_MACOS.md) | [FVM](docs/setup/FLUTTER_SETUP_FVM.md) | [문제 해결](docs/setup/FLUTTER_TROUBLESHOOTING.md)
+- 📸 **대화 이미지 분석**: 카카오톡 스크린샷을 업로드하면 AI가 대화 내용을 추출합니다
+- 🤖 **AI 답장 생성**: Claude API를 활용하여 맥락에 맞는 영어 답장 3개를 생성합니다
+- 🎨 **다양한 톤 선택**: 비즈니스, 캐주얼, 격식있게, 친근하게, 유머러스하게 등 상황에 맞는 톤 선택 가능
+- 💡 **한국어 설명**: 각 답장마다 왜 적절한지 한국어로 설명을 제공합니다
+- 📋 **간편한 복사**: 마음에 드는 답장을 클릭 한 번으로 복사할 수 있습니다
 
-## 시작하기
+## 🚀 시작하기
 
-### FVM 사용 (권장)
+### 1. 저장소 클론
+
+```bash
+git clone https://github.com/your-username/next-line.git
+cd next-line
+```
+
+### 2. Flutter 버전 설치 (FVM)
 
 이 프로젝트는 FVM으로 Flutter 버전을 관리합니다 (v3.35.6).
 
@@ -19,87 +29,106 @@ dart pub global activate fvm
 
 # 프로젝트 Flutter 버전 설치
 fvm install
+```
 
-# 의존성 설치
+### 3. 환경 변수 설정
+
+`.env.example` 파일을 복사하여 `.env` 파일을 만들고, Claude API 키를 입력합니다.
+
+```bash
+# .env 파일 생성
+cp .env.example .env
+
+# .env 파일을 열어서 API 키 입력
+# CLAUDE_API_KEY=sk-ant-api03-your-api-key-here
+```
+
+**Claude API Key 발급 방법:**
+1. https://console.anthropic.com 접속
+2. 회원가입 / 로그인
+3. API Keys 메뉴에서 새 키 생성
+4. 생성된 키를 `.env` 파일에 입력
+
+### 4. 의존성 설치
+
+```bash
 fvm flutter pub get
+```
 
-# 앱 실행
+### 5. 앱 실행
+
+```bash
+# Android/iOS 에뮬레이터 실행 후
 fvm flutter run
 ```
 
-## Flutter 유용한 커맨드
+## 🛠 개발 환경
 
-```bash
-# 패키지 추가
-fvm flutter pub add package_name
+- **Flutter**: 3.35.6 (FVM으로 관리)
+- **Dart**: ^3.8.1
+- **상태 관리**: Riverpod 3.0
+- **AI Model**: Claude Sonnet 4.5
 
-# 코드 포맷팅
-fvm dart format .
+## 📦 주요 패키지
 
-# 빌드 캐시 삭제
-fvm flutter clean
+- `flutter_riverpod: ^3.0.3` - 상태 관리
+- `image_picker: ^1.1.2` - 이미지 선택/촬영
+- `http: ^1.2.2` - HTTP 클라이언트 (Claude API)
+- `flutter_dotenv: ^5.2.1` - 환경 변수 관리
+- `flutter_svg: ^2.0.16` - SVG 이미지
+- `easy_localization: ^3.0.8` - 다국어 지원
 
-# 빌드
-fvm flutter build apk                        # Android APK 빌드
-fvm flutter build appbundle                  # Android App Bundle 빌드
-```
-
-## Git 유용한 커맨드
-
-```bash
-# 직전 커밋 취소 (변경사항은 staged 상태로 유지)
-git reset --soft HEAD~1
-
-# 강제 푸시 (주의: 협업 시 사용 금지)
-git push --force
-
-```
-
-## 폴더 구조
+## 📁 프로젝트 구조
 
 ```
 lib/
 ├── core/
-│   ├── controllers/    # 전역 컨트롤러
-│   └── themes/         # 테마 설정
-└── features/           # 기능별 모듈
-    ├── todo/
-    │   ├── controllers/
-    │   ├── models/
-    │   └── screens/
-    └── github/         # API 연동 예제
-        ├── controllers/
-        ├── models/
-        └── repositories/
+│   ├── controllers/    # 전역 컨트롤러 (테마 등)
+│   └── themes/         # 디자인 시스템
+└── features/
+    └── reply_helper/   # 답장 도우미 기능
+        ├── controllers/        # Riverpod 상태 관리
+        ├── models/            # 데이터 모델
+        ├── repositories/      # Claude API 연동
+        ├── screens/           # UI 화면
+        └── widgets/           # 재사용 위젯
 ```
 
-## 주요 패키지
+## 🎨 디자인
 
-- `flutter_riverpod: ^3.0.3` - 상태 관리
-- `easy_localization: ^3.0.8` - 다국어 지원
-- `google_fonts: ^6.3.2` - 폰트
-- `http: ^1.2.2` - HTTP 클라이언트
-- `firebase_core: ^4.2.0` - Firebase 코어
-- `firebase_crashlytics: ^5.0.3` - 크래시 리포팅
-- `pedantic_mono: ^1.34.0` - 린트 규칙
+Next Line은 따뜻하고 친근한 느낌의 디자인을 지향합니다:
 
-## 📚 문서
+- **컬러**: 오렌지-노랑, 보라-핑크 그라데이션
+- **스타일**: 둥근 모서리, 부드러운 그림자, 이모지 활용
+- **UX**: 직관적인 플로우, 명확한 피드백
 
-- **[프로젝트 구조](docs/architecture/project-structure.md)** - 폴더 구조와 모듈화 전략
-- **[스크린 & 위젯](docs/architecture/screens.md)** - 화면과 위젯 작성 가이드
-- **[컨트롤러](docs/architecture/controllers.md)** - Riverpod 상태 관리 (Notifier, AsyncNotifier)
-- **[레포지토리](docs/architecture/repositories.md)** - Repository 레이어 사용 가이드
-- **[다국어화](docs/features/localization.md)** - easy_localization 사용법
-- **[테마](docs/features/theming.md)** - 색상, 타이포그래피, 테마 전환
-- **[에러 핸들링](docs/architecture/error-handling.md)** - 에러 처리와 Crashlytics
+## 🔒 보안 주의사항
+
+다음 파일들은 절대 Git에 커밋하지 마세요:
+
+- `.env` - API 키가 포함된 환경 변수
+- `.mcp.json` - MCP 서버 설정
+- `google-services.json` - Firebase Android 설정
+- `GoogleService-Info.plist` - Firebase iOS 설정
+
+이 파일들은 이미 `.gitignore`에 추가되어 있습니다.
+
+## 🤝 기여하기
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📝 라이센스
+
+MIT License
+
+## 💬 문의
+
+프로젝트에 대한 질문이나 제안이 있으시면 Issue를 생성해주세요!
 
 ---
 
-## 🔧 추가 설정 (선택사항)
-
-- **[Firebase 설정](docs/setup/FIREBASE_SETUP.md)** - Firebase & Crashlytics 설정
-- **[Claude Code MCP 설정](docs/setup/CLAUDE_CODE_MCP_SETUP.md)** - Figma 연동 설정
-
-## 라이센스
-
-MIT
+Made with ❤️ using Flutter & Claude AI

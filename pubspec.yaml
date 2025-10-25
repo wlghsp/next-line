@@ -22,6 +22,9 @@ dependencies:
 
   pedantic_mono: ^1.34.0
   http: ^1.5.0
+  flutter_svg: ^2.2.1
+  flutter_dotenv: ^6.0.0
+  image_picker: ^1.2.0
 
 dev_dependencies:
   flutter_test:
@@ -33,3 +36,6 @@ flutter:
   assets:
     - assets/
     - assets/translations/
+    - assets/images/reply_helper/
+    - assets/sample_images/
+    - .env
