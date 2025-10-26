@@ -2,6 +2,14 @@
 
 AI 기반 영어 답장 도우미 - 카카오톡 대화 이미지를 분석하여 상황에 맞는 영어 답장을 추천해드립니다.
 
+## 📸 스크린샷
+
+<p align="center">
+  <img src="assets/screenshots/screenshot-1.png" width="250" />
+  <img src="assets/screenshots/screenshot-2.png" width="250" />
+  <img src="assets/screenshots/screenshot-3.png" width="250" />
+</p>
+
 ## 📱 주요 기능
 
 - 📸 **대화 이미지 분석**: 카카오톡 스크린샷을 업로드하면 AI가 대화 내용을 추출합니다
@@ -62,12 +70,24 @@ fvm flutter pub get
 fvm flutter run
 ```
 
-## 🛠 개발 환경
+## 🛠️ 기술 스택
 
-- **Flutter**: 3.35.6 (FVM으로 관리)
-- **Dart**: ^3.8.1
-- **상태 관리**: Riverpod 3.0
-- **AI Model**: Claude Sonnet 4.5
+### Frontend
+- **Framework**: Flutter 3.35.6
+- **Language**: Dart ^3.8.1
+- **State Management**: Riverpod 3.0
+- **UI/UX**: Material 3 Design with Custom Gradient Themes
+
+### AI & API
+- **AI Model**: Anthropic Claude Sonnet 4.5
+- **Vision API**: Claude Vision for Image Analysis
+- **HTTP Client**: Dart http package
+
+### Development Tools
+- **Version Control**: Git & GitHub
+- **Flutter Version Manager**: FVM
+- **Environment Variables**: flutter_dotenv
+- **Localization**: easy_localization
 
 ## 📦 주요 패키지
 
@@ -128,6 +148,16 @@ MIT License
 ## 💬 문의
 
 프로젝트에 대한 질문이나 제안이 있으시면 Issue를 생성해주세요!
+
+---
+
+## 🏆 해커톤
+
+이 프로젝트는 [치킨 먹는 해커톤(치킨톤) 2024](https://blueberry-team.com/)에서 개발되었습니다.
+
+- **기간**: 2024.10.25(금) 22:00 ~ 2024.10.26(토) 10:00
+- **주제**: "당신의 아이디어, 이번 주말에 앱이 된다"
+- **개발 시간**: 12시간
 
 ---
 

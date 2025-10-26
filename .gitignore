@@ -98,3 +98,6 @@ devtools_options.yaml
 
 # 샘플/테스트 이미지 (용량 큼)
 assets/sample_images/
+
+# 스크린샷은 커밋 (README에 사용)
+!assets/screenshots/
